@@ -13,6 +13,7 @@ return array(
     'App\\Core\\Request' => $baseDir . '/core/Request.php',
     'App\\Core\\Router' => $baseDir . '/core/Router.php',
     'App\\Core\\ViewResolver' => $baseDir . '/core/ViewResolver.php',
+    'App\\Service\\LoginService' => $baseDir . '/service/LoginService.php',
     'ComposerAutoloaderInite84b1596007af5ceb56786cf55a3e8a9' => $vendorDir . '/composer/autoload_real.php',
     'Composer\\Autoload\\ClassLoader' => $vendorDir . '/composer/ClassLoader.php',
     'Composer\\Autoload\\ComposerStaticInite84b1596007af5ceb56786cf55a3e8a9' => $vendorDir . '/composer/autoload_static.php',
