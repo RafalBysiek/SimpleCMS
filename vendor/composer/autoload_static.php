@@ -7,6 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInite84b1596007af5ceb56786cf55a3e8a9
 {
     public static $classMap = array (
+        'App\\Controllers\\LoginController' => __DIR__ . '/../..' . '/controllers/LoginController.php',
         'App\\Controllers\\PagesController' => __DIR__ . '/../..' . '/controllers/PagesController.php',
         'App\\Controllers\\UsersController' => __DIR__ . '/../..' . '/controllers/UsersController.php',
         'App\\Core\\App' => __DIR__ . '/../..' . '/core/App.php',
