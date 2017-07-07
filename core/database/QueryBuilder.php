@@ -15,13 +15,16 @@ class QueryBuilder {
 
 		return $statement->fetchAll(PDO::FETCH_CLASS);
 	}
-
-	public function insert($table, $parameters) {
+//add new user to tthe users database 
+	public function insert($login, $email, $password) {
 		$sql = sprintf(
-			'insert into %s (%s) values (%s);',
-			$table,
-			implode(', ', array_keys($parameters)),
-			':' . implode(', :', array_keys($parameters))
+			'insert into users (login, email, password) values (%s, %s, %s);',
+			$login, $email, $password
+		);
+	public function insert($email, $password) {
+		$sql = sprintf(
+			'insert into users (login, email, password) values (%s, %s, %s);',
+			$email, $email, $password
 		);
 
 		try {
