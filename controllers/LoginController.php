@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Core\ViewResolver;
 use App\Service\LoginService;
 use App\Dto\User;
+use App\Repository\UsersRepositoryImpl;
 
 class LoginController {
 
@@ -15,7 +16,7 @@ class LoginController {
 								$database) {
 		$this->viewResolver = $viewResolver;
 		$pdo = $database->getPDO();
-		$this->loginService = new LoginService(new UsersRepository($pdo));
+		$this->loginService = new LoginService(new UsersRepositoryImpl($pdo));
 	}
 
 	public function showLogin() {

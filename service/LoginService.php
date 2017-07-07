@@ -48,7 +48,7 @@ class LoginService {
 	}
 
 	private function isUserRegistered() {
-		return $usersRepository->isUserRegistered($this->user);
+		return $this->usersRepository->isUserRegistered($this->user);
 	}
 
 	public function loginSuccessful() {
