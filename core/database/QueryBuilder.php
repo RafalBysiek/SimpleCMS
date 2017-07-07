@@ -32,7 +32,6 @@ class QueryBuilder {
 			die('Whoops, something went wrong');
 		}
 
-
 		/*
 		array_map(function($param) {
 			return ":{$param}";
