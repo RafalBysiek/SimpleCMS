@@ -21,7 +21,9 @@ class QueryBuilder {
 			'insert into users (login, email, password) values (%s, %s, %s);',
 			$login, $email, $password
 		);
-	public function insert($email, $password) {
+	}
+
+	public function insertdwa($email, $password) {
 		$sql = sprintf(
 			'insert into users (login, email, password) values (%s, %s, %s);',
 			$email, $email, $password

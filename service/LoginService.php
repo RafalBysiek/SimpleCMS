@@ -10,15 +10,15 @@ class LoginService {
 	private $email;
 	private $password;
 
-	public function __construct($queryBuilder,
-								string $email,
-								strin $password) {
+	public function __construct($queryBuilder) {
 		$this->queryBuilder = $queryBuilder;
-		$this->email = $email;
-		$this->password = $password;
+		$this->email = '';
+		$this->password = '';
 	}
 
 	public function login(string $email, string $password) {
+		$this->email = $email;
+		$this->password = $password;
 		if ($this->areDetailsValid()) {
 			$this->loginSuccessful();
 		} else {
@@ -30,13 +30,17 @@ class LoginService {
 		$emailValid = $this->isEmailValid();
 		$passwordValid = $this->isPasswordValid();
 
-		retrun $emailValid && $passwordValid;
+		return $emailValid && $passwordValid;
 	}
 
 	private function isEmailValid() {
 		$email = test_input($_POST["email"]);
 		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-			$emailErr = "Invalid email format";
+			return false;
+		} else {
+			return true;
 		}
 	}
+
+
 } 
