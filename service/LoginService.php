@@ -19,10 +19,17 @@ class LoginService {
 	public function login(string $email, string $password) {
 		$this->email = $email;
 		$this->password = $password;
-		if ($this->areDetailsValid()) {
+
+		$detailsValid = $this->areDetailsValid();
+
+		if ($detailsValid) {
+			compareToRegisteredUsers();
+
+			echo 'details valid';
 			$this->loginSuccessful();
 		} else {
-			$this->loginFailed();
+			echo 'details invalid';
+			//$this->loginFailed();
 		}
 	}
 
@@ -34,13 +41,29 @@ class LoginService {
 	}
 
 	private function isEmailValid() {
-		$email = test_input($_POST["email"]);
-		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
 			return false;
 		} else {
 			return true;
 		}
 	}
+ 	// TODO
+	private function isPasswordValid() {
+		if (! isset($this->password)) {
+			return false;
+		}
 
+		if ($this->password === '') {
+			return false;
+		}
+		return true;
+	}
 
+	private function compareToRegisteredUsers() {
+
+	}
+
+	public function loginSuccessful() {
+
+	}
 } 

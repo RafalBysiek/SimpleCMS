@@ -29,4 +29,5 @@ class UsersController {
 		// it tells location we want to redirect to
 		header('Location: /users');
 	}
+
 }

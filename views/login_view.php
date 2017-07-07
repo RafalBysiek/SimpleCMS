@@ -4,7 +4,7 @@
 
 	<h1>Sign Up</h1>
 
-	<form mehtod="POST" action="/login">
+	<form method="POST" action="/login">
 		<ul>
 			<li><input type="email" name="email"></li>
 			<li><input type="password" name="password"></li>
