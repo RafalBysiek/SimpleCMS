@@ -16,4 +16,8 @@ class ViewResolver {
 		extract($data);
 		return require $this->prefix . $viewName . $this->postfix;
 	}
+
+	public function redirect($path) {
+		header("Location: /{$path}");
+	}
 }

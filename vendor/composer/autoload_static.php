@@ -14,6 +14,7 @@ class ComposerStaticInite84b1596007af5ceb56786cf55a3e8a9
         'App\\Core\\Request' => __DIR__ . '/../..' . '/core/Request.php',
         'App\\Core\\Router' => __DIR__ . '/../..' . '/core/Router.php',
         'App\\Core\\ViewResolver' => __DIR__ . '/../..' . '/core/ViewResolver.php',
+        'App\\Dto\\User' => __DIR__ . '/../..' . '/dto/User.php',
         'App\\Service\\LoginService' => __DIR__ . '/../..' . '/service/LoginService.php',
         'ComposerAutoloaderInite84b1596007af5ceb56786cf55a3e8a9' => __DIR__ . '/..' . '/composer/autoload_real.php',
         'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',

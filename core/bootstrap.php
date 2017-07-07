@@ -14,6 +14,3 @@ App::bind('database', new QueryBuilder($pdo));
 
 App::bind('viewResolver', new ViewResolver('views/', '_view.php'));
 
-function redirect($path) {
-	header("Location: /{$path}");
-}

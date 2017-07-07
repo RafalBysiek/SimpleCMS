@@ -7,29 +7,21 @@ namespace App\Service;
 class LoginService {
 
 	private $queryBuilder;
-	private $email;
-	private $password;
+	private $user = NULL;
 
 	public function __construct($queryBuilder) {
 		$this->queryBuilder = $queryBuilder;
-		$this->email = '';
-		$this->password = '';
 	}
 
-	public function login(string $email, string $password) {
-		$this->email = $email;
-		$this->password = $password;
-
+	public function login($user) {
+		$this->user = $user; 
 		$detailsValid = $this->areDetailsValid();
 
 		if ($detailsValid) {
-			compareToRegisteredUsers();
-
-			echo 'details valid';
-			$this->loginSuccessful();
+			$this->compareToRegisteredUsers();
+			return $this->loginSuccessful();
 		} else {
-			echo 'details invalid';
-			//$this->loginFailed();
+			return $this->loginFailed();
 		}
 	}
 
@@ -41,15 +33,17 @@ class LoginService {
 	}
 
 	private function isEmailValid() {
-		if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+		$email = $this->user->getEmail();
+		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 			return false;
 		} else {
 			return true;
 		}
 	}
- 	// TODO
+
 	private function isPasswordValid() {
-		if (! isset($this->password)) {
+		$password = $this->user->getPassword();
+		if (! isset($password)) {
 			return false;
 		}
 
@@ -59,11 +53,18 @@ class LoginService {
 		return true;
 	}
 
+// TODO
 	private function compareToRegisteredUsers() {
 
 	}
 
 	public function loginSuccessful() {
+		session_start();
+		$_SESSION['username'] = $_POST['username'];
+		header("Location: /");
+	}
 
+	public function loginFailed() {
+		header("Location: /login");
 	}
 } 

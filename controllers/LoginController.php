@@ -3,8 +3,8 @@
 namespace App\Controllers;
 
 use App\Core\ViewResolver;
-
 use App\Service\LoginService;
+use App\Dto\User;
 
 class LoginController {
 
@@ -21,11 +21,12 @@ class LoginController {
 		return $this->viewResolver->view('login');
 	}
 
-	public function processLogin() {
+	public function processLogin() {		
 		$email = $_POST['email'];
 		$password = $_POST['password'];
-		$this->loginService->login(strip_tags($email), strip_tags($password));
+		$user = new User(strip_tags($email), strip_tags($password));
+		$this->loginService->login($user);
 
-		//return $this->viewResolver->view('contact');
+		return $this->viewResolver->view('contact');
 	}
 }
