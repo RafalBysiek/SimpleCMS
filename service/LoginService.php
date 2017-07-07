@@ -18,7 +18,7 @@ class LoginService {
 		$detailsValid = $this->areDetailsValid();
 
 		if ($detailsValid) {
-			$this->compareToRegisteredUsers();
+			$this->userExistsInReposi();
 			return $this->loginSuccessful();
 		} else {
 			return $this->loginFailed();
@@ -43,14 +43,10 @@ class LoginService {
 
 	private function isPasswordValid() {
 		$password = $this->user->getPassword();
-		if (! isset($password)) {
-			return false;
-		}
+		$passwordSet = isset($password);
+		$passwordEmpty = $password === '';
 
-		if ($this->password === '') {
-			return false;
-		}
-		return true;
+		return $passwordSet && (! $passwordEmpty);
 	}
 
 // TODO
@@ -66,5 +62,9 @@ class LoginService {
 
 	public function loginFailed() {
 		header("Location: /login");
+	}
+
+	public function logout() {
+
 	}
 } 

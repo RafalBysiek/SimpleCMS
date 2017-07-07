@@ -12,7 +12,7 @@ class User {
 	}
 
 	public function getEmail() {
-		return $this->email;
+		return (string)$this->email;
 	}
 
 	public function setEmail(string $email) {
