@@ -14,7 +14,8 @@ class LoginController {
 	public function __construct($viewResolver,
 								$database) {
 		$this->viewResolver = $viewResolver;
-		$this->loginService = new LoginService($database);
+		$pdo = $database->getPDO();
+		$this->loginService = new LoginService(new UsersRepository($pdo));
 	}
 
 	public function showLogin() {

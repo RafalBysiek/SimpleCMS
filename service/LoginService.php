@@ -6,20 +6,18 @@ namespace App\Service;
 
 class LoginService {
 
-	private $queryBuilder;
+	private $usersRepository;
 	private $user = NULL;
 
-	public function __construct($queryBuilder) {
-		$this->queryBuilder = $queryBuilder;
+	public function __construct($usersRepository) {
+		$this->usersRepository = $usersRepository;
 	}
 
 	public function login($user) {
 		$this->user = $user; 
-		$detailsValid = $this->areDetailsValid();
 
-		if ($detailsValid) {
-			$this->userExistsInReposi();
-			return $this->loginSuccessful();
+		if ($this->areDetailsValid() && $this->isUserRegistered()) {
+			return $this->loginSuccessful();			
 		} else {
 			return $this->loginFailed();
 		}
@@ -49,9 +47,8 @@ class LoginService {
 		return $passwordSet && (! $passwordEmpty);
 	}
 
-// TODO
-	private function compareToRegisteredUsers() {
-
+	private function isUserRegistered() {
+		return $usersRepository->isUserRegistered($this->user);
 	}
 
 	public function loginSuccessful() {

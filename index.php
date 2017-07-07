@@ -22,6 +22,6 @@ $usersRepository = new UsersRepositoryImpl($pdo);
 
 $user = new User('example', 'password');
 
-$userRegistered = $usersRepository->isUserRegistered($user);
+$userRegistered = $usersRepository->validateEmailAndPassword($user);
 
 var_dump($userRegistered);

@@ -14,19 +14,23 @@ class UsersRepositoryImpl implements UsersRepository {
 
 	public function isUserRegistered($user) {
 		$email = $user->getEmail();
-		$query = "SELECT email
-				  FROM simplecms
-				  WHERE email = $email;";
+		$query = "SELECT * FROM users WHERE email='{$email}';";
 
+		return $this->query($query) != 0;
+	}
+
+	public function validateEmailAndPassword($user) {
+		$email = $user->getEmail();
+		$password = $user->getPassword();
+		$query = "SELECT * FROM users 
+				  WHERE email='{$email}' AND password='{$password}';";
+
+		return $this->query($query) != 0;
+	}
+
+	private function query($query) {
 		try {
-			$statement = $this->pdo->prepare($query);
-			$statement->execute();
-			$result = $statement->fetchAll();
-			if (empty($result)) {
-				return false;
-			} else {
-				return true;
-			}
+			return $this->pdo->query($query);			
 		} catch(PDOException $e) {
 			die($e->getMessage());
 		}
