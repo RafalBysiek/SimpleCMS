@@ -55,7 +55,7 @@ class LoginService {
 		session_start();
 		$_SESSION['username'] = $_POST['username'];
 		header("Location: /add_company");
-		//require 'Add_company.php';
+
 	}
 
 	public function loginFailed() {

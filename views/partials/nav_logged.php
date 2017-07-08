@@ -4,6 +4,6 @@
 		<li id="menuli"><a href="/about">About</a></li>
 		<li id="menuli"><a href="/contact">Contact</a></li>
 		<li id="menuli"><a href="/users">Users</a></li>
-		<li id="menuli"><a href="../service/logout.php">Logout</a></li>
+		<li id="menuli"><a href="../service/logout.php" style="position: absolute; right: 10px;">Logout</a></li>
 	</ul>
 </nav>

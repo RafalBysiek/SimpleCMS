@@ -4,7 +4,7 @@
 
 	<h1>Add new company</h1>
 
-		<form method="POST" action="/login">
+		<form method="POST" action="/add_company">
 		<ul style="list-style-type:none">
 			Company name: 
 			<li><input type="text" name="name_company"></li><br>
@@ -21,7 +21,7 @@
 			Email of the company:
 			<li><input type="email" name="email_company"></li><br>
 			<input value="checkbox" type="checkbox"> Zgoda na przetwarzanie informacji.<br>
-			<li><button type="button" name="submit">Finish</button></li>
+			<li><button type="submit" name="submit">Finish</button></li>
 		</ul>
 	</form>
 
