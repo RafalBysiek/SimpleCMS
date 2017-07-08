@@ -1,9 +1,9 @@
 <nav>
-	<ul>
-		<li><a href="/">Home</a></li>
-		<li><a href="/about">About</a></li>
-		<li><a href="/contact">Contact</a></li>
-		<li><a href="/users">Users</a></li>
-		<li><a href="/login">Sign Up</a></li>
+	<ul id="menu">
+		<li id="menuli"><a href="/">Home</a></li>
+		<li id="menuli"><a href="/about">About</a></li>
+		<li id="menuli"><a href="/contact">Contact</a></li>
+		<li id="menuli"><a href="/users">Users</a></li>
+		<li id="menuli"><a href="/login">Sign Up</a></li>
 	</ul>
 </nav>

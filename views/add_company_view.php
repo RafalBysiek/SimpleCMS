@@ -5,15 +5,15 @@
 	<h1>Add new company</h1>
 
 		<form method="POST" action="/login">
-		<ul>
+		<ul style="list-style-type:none">
 			Company name: 
 			<li><input type="text" name="name_company"></li><br>
-			Adress of company:
-			<li><input type="text" name="adress_company"></li><br>
+			Address of company:
+			<li><input type="text" name="address_company"></li><br>
 			Street:
 			<li><input type="text" name="street_company"></li><br>
 			City:
-			<li><input type="text" name="street_company"></li><br>
+			<li><input type="text" name="city_company"></li><br>
 			Country:
 			<li><input type="text" name="country_company"></li><br>
 			NIP:
@@ -21,7 +21,7 @@
 			Email of the company:
 			<li><input type="email" name="email_company"></li><br>
 			<input value="checkbox" type="checkbox"> Zgoda na przetwarzanie informacji.<br>
-			<li><button type="submit" name="submit">Finish</button></li>
+			<li><button type="button" name="submit">Finish</button></li>
 		</ul>
 	</form>
 
