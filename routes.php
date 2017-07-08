@@ -8,3 +8,6 @@ $router->get('users', 'UsersController@index');
 $router->post('users', 'UsersController@store');
 $router->get('login', 'LoginController@showLogin');
 $router->post('login', 'LoginController@processLogin');
+$router->get('add_company', 'PagesController@add_company');
+$router->post('add_company', 'PagesController@add_company');
+$router->post('logout', 'service/logout.php');
