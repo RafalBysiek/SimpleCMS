@@ -3,6 +3,7 @@
 namespace App\Dto;
 
 class User {
+	
 	private $email;
 	private $password;
 

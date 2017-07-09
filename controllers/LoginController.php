@@ -12,23 +12,39 @@ class LoginController {
 	private $viewResolver;
 	private $loginService;
 
+	/* takes instance of ViewResolver and QueryBuilder */
+	/* póki co skomplikowane, bo wysyłany jest QueryBuilder do controllerów w klasie Router w metodzie callAction(),
+	   a ze zrobiłem inny dostęp do bazy danych (za pomocą UsersRepositoryImpl), to potrzebuję PDO które jest już stworzone
+	   w QueryBuilderze, więc dopisałem metodę getPDO, która go po prostu tworzy i mogę robić nowy obiekt bez tworzenia PDO jeszcze raz. */
 	public function __construct($viewResolver,
-								$database) {
+								$queryBuilder) {
 		$this->viewResolver = $viewResolver;
-		$pdo = $database->getPDO();
+		$pdo = $queryBuilder->getPDO();
 		$this->loginService = new LoginService(new UsersRepositoryImpl($pdo));
 	}
 
+	/* redirects to the login_view.php */
 	public function showLogin() {
 		return $this->viewResolver->view('login');
 	}
 
+	/* gathers details about email and password from POST superglobal variable, then sends these to LoginService which takes care of login process*/
+	// TODO
 	public function processLogin() {		
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 		$user = new User(strip_tags($email), strip_tags($password));
-		$this->loginService->login($user);
 
-		return $this->viewResolver->view('contact');
+		if ($this->loginService->login($user)) {
+			return $this->viewResolver->view('contact');
+		} else {
+			return $this->viewResolver->view('login', compact('email'));
+		};
+	}
+
+	// TODO
+	public function logout() {
+		$loginService->logout();
+		$this->viewResolver->redirect('/');
 	}
 }

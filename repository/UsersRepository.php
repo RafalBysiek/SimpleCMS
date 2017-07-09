@@ -4,5 +4,5 @@ namespace App\Repository;
 
 interface UsersRepository {
 
-	public function isUserRegistered($user);
+	public function validateUser($user);
 }

@@ -12,25 +12,21 @@ class UsersRepositoryImpl implements UsersRepository {
 		$this->pdo = $pdo;
 	}
 
-	public function isUserRegistered($user) {
-		$email = $user->getEmail();
-		$query = "SELECT * FROM users WHERE email='{$email}';";
-
-		return $this->query($query) != 0;
-	}
-
-	public function validateEmailAndPassword($user) {
+	public function validateUser($user) {
 		$email = $user->getEmail();
 		$password = $user->getPassword();
-		$query = "SELECT * FROM users 
+		$queryString = "SELECT COUNT(*) FROM users 
 				  WHERE email='{$email}' AND password='{$password}';";
 
-		return $this->query($query) != 0;
+		$numberOfRows = $this->query($queryString);
+		return (int)$numberOfRows != 0;
 	}
 
-	private function query($query) {
+	private function query($queryString) {
 		try {
-			return $this->pdo->query($query);			
+			$result = $this->pdo->prepare($queryString); 
+			$result->execute();			
+			return $result->fetchColumn(0);			
 		} catch(PDOException $e) {
 			die($e->getMessage());
 		}

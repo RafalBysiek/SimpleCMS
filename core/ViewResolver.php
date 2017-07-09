@@ -12,11 +12,13 @@ class ViewResolver {
 		$this->postfix = $postfix;
 	}
 
+	// to samo co funkcja uri() z tutoriala
 	public function view(string $viewName, $data = []) {
 		extract($data);
 		return require $this->prefix . $viewName . $this->postfix;
 	}
 
+	// to samo co funkcja method() z tutoriala
 	public function redirect($path) {
 		header("Location: /{$path}");
 	}

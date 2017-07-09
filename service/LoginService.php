@@ -17,9 +17,10 @@ class LoginService {
 		$this->user = $user; 
 
 		if ($this->areDetailsValid() && $this->isUserRegistered()) {
-			return $this->loginSuccessful();			
+			$this->processLogging();		
+			return true;	
 		} else {
-			return $this->loginFailed();
+			return false;
 		}
 	}
 
@@ -32,10 +33,10 @@ class LoginService {
 
 	private function isEmailValid() {
 		$email = $this->user->getEmail();
-		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-			return false;
-		} else {
+		if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 			return true;
+		} else {
+			return false;
 		}
 	}
 
@@ -48,21 +49,17 @@ class LoginService {
 	}
 
 	private function isUserRegistered() {
-		return $this->usersRepository->isUserRegistered($this->user);
+		return $this->usersRepository->validateUser($this->user);
 	}
 
-	public function loginSuccessful() {
+	private function processLogging() {
 		session_start();
-		$_SESSION['username'] = $_POST['username'];
-		header("Location: /add_company");
-
+		//$_SESSION['username'] = $_POST['username'];
 	}
 
-	public function loginFailed() {
-		header("Location: /login");
-	}
-
-	public function logout() {
-
+	private function logout() {
+		session_start();
+		session_destroy();
+		//$home_url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.php';
 	}
 } 

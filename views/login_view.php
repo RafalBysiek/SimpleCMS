@@ -6,7 +6,7 @@
 
 	<form method="POST" action="/login">
 		<ul>
-			<li><input type="email" name="email"></li>
+			<li><input type="email" name="email"><?php if(isset($email)) {echo 'Details incorrect.';} ?></li>
 			<li><input type="password" name="password"></li>
 			<li><button name="login">zaloguj</button></li>
 		</ul>

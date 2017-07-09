@@ -38,6 +38,13 @@ class Router {
 
 	private function callAction($controller, $action) {
 		$controller = "App\Controllers\\{$controller}";
+
+		/* podobnie jak w tutorialu, natomiast:
+		- potrzebowałem dostęp do ViewResolvera, który zawiera metody, które w tutorialu robiły te globalne funkcje:
+		uri() i method(), natomiast mamy pisać obiektowo, więc napisałem ten ViewResolver,
+		robią to samo co w tutorialu ale trzeba stworzyć obiekt.
+		- potrzebowałem dostęp do bazy danych w controllerach, więc wysyłam z App database, to instancja QueryBuilder 
+		  tworzona w App.php */
 		$controller = new $controller(App::get('viewResolver'),
 									  App::get('database'));
 
