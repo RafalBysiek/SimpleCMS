@@ -4,7 +4,7 @@
 
 	<h1>Add new company</h1>
 
-		<form method="POST" action="/add_company">
+		<form method="POST" action="/AddingCompany">
 		<ul style="list-style-type:none">
 			Company name: 
 			<li><input type="text" name="name_company"></li><br>
