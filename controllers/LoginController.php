@@ -36,7 +36,7 @@ class LoginController {
 		$user = new User(strip_tags($email), strip_tags($password));
 
 		if ($this->loginService->login($user)) {
-			return $this->viewResolver->view('contact');
+			return $this->viewResolver->view('add_company');
 		} else {
 			return $this->viewResolver->view('login', compact('email'));
 		};

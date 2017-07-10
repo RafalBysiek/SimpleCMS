@@ -9,5 +9,5 @@ $router->post('users', 'UsersController@store');
 $router->get('login', 'LoginController@showLogin');
 $router->post('login', 'LoginController@processLogin');
 $router->get('add_company', 'PagesController@add_company');
-$router->post('add_company', 'PagesController@add_company');
+$router->post('add_company', 'Add_companyController@AddingCompany');
 $router->post('logout', 'LoginController@logout');
