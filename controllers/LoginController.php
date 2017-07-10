@@ -28,21 +28,38 @@ class LoginController {
 		return $this->viewResolver->view('page_signin');
 	}
 
-	/* gathers details about email and password from POST superglobal variable, then sends these to LoginService which takes care of login process*/
-	public function processLogin() {		
-		$email = $_POST['email'];
-		$password = $_POST['password'];
-		$user = new User(strip_tags($email), strip_tags($password));
+	/* creates User object, then sends these to LoginService which takes care of login process*/
+	public function processLogin() {	
+		$user = $this->createUser();	
 
 		if ($this->loginService->login($user)) {
 			return $this->viewResolver->view('add_company');
 		} else {
-			return $this->viewResolver->view('login', compact('email'));
+			return $this->viewResolver->view('page_signin', compact('email'));
 		};
 	}
 
+	// creates a new User object, takes details from POST method
+	private function createUser() {
+		$email = $_POST['email'];
+		$password = $_POST['password'];
+		return new User(strip_tags($email), strip_tags($password));
+	}
+
+	// process user logout and returns to home page
 	public function logout() {
 		$this->loginService->logout();
 		$this->viewResolver->view('index');
 	}
+
+	// shows page responsible for reminding password
+	public function showForgotPassword() {
+		return $this->viewResolver->view('page_forgotpwd');
+	}
+
+	// TODO
+	public function processForgotPassword() {
+
+	}
+
 }

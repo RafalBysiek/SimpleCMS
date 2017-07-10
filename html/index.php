@@ -5,6 +5,11 @@
 
 	<h1>Home Page</h1>
 
-	<?php echo "Hello " . substr($_SESSION['email'], 0, strpos($_SESSION['email'], '@')); ?>
+	<?php 
+		if (isset($_SESSION['user'])) {
+			$email = $_SESSION['user']->getEmail();
+			echo "Hello " . substr($email, 0, strpos($email, '@')); 
+		}
+	?>
 
 <?php require('partials/footer.php'); ?>

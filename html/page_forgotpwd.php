@@ -24,10 +24,10 @@
     <div class="wrapper text-center">
       <strong>Input your email to reset your password</strong>
     </div>
-    <form name="reset" ng-init="isCollapsed=true">
+    <form name="reset" ng-init="isCollapsed=true" method="POST" action="forgotPassword">
       <div class="list-group list-group-sm">
         <div class="list-group-item">
-          <input type="email" placeholder="Email" ng-model="email" class="form-control no-border" required>
+          <input type="email" placeholder="Email" ng-model="email" class="form-control no-border" required name="email">
         </div>
       </div>
       <button type="submit" ng-disabled="reset.$invalid" class="btn btn-lg btn-primary btn-block"  ng-click="isCollapsed = !isCollapsed" >Send</button>

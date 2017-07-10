@@ -7,13 +7,14 @@ namespace Composer\Autoload;
 class ComposerStaticInite84b1596007af5ceb56786cf55a3e8a9
 {
     public static $classMap = array (
+        'App\\Controllers\\Add_companyController' => __DIR__ . '/../..' . '/controllers/Add_companyController.php',
         'App\\Controllers\\LoginController' => __DIR__ . '/../..' . '/controllers/LoginController.php',
         'App\\Controllers\\PagesController' => __DIR__ . '/../..' . '/controllers/PagesController.php',
-        'App\\Controllers\\UsersController' => __DIR__ . '/../..' . '/controllers/Add_companyController.php',
         'App\\Core\\App' => __DIR__ . '/../..' . '/core/App.php',
         'App\\Core\\Request' => __DIR__ . '/../..' . '/core/Request.php',
         'App\\Core\\Router' => __DIR__ . '/../..' . '/core/Router.php',
         'App\\Core\\ViewResolver' => __DIR__ . '/../..' . '/core/ViewResolver.php',
+        'App\\Dto\\Company' => __DIR__ . '/../..' . '/dto/Company.php',
         'App\\Dto\\User' => __DIR__ . '/../..' . '/dto/User.php',
         'App\\Repository\\UsersRepository' => __DIR__ . '/../..' . '/repository/UsersRepository.php',
         'App\\Repository\\UsersRepositoryImpl' => __DIR__ . '/../..' . '/repository/UsersRepositoryImpl.php',

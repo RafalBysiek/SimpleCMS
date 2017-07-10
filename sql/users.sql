@@ -1,4 +1,5 @@
 CREATE TABLE simplecms.users (
-    email VARCHAR(50) PRIMARY KEY,
+	username VARCHAR(15) PRIMARY KEY,
+    email VARCHAR(50) NOT NULL,
     password VARCHAR(50) NOT NULL
 );

@@ -24,7 +24,7 @@
         <div class="wrapper text-center">
           <strong>Sign up to find interesting thing</strong>
         </div>
-        <form name="form" class="form-validation">
+        <form name="form" class="form-validation" method=POST action="register">
           <div class="text-danger wrapper text-center" ng-show="authError">
               
           </div>
