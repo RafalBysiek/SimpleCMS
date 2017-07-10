@@ -24,4 +24,5 @@ return array(
     'Composer\\Autoload\\ComposerStaticInite84b1596007af5ceb56786cf55a3e8a9' => $vendorDir . '/composer/autoload_static.php',
     'Connection' => $baseDir . '/core/database/Connection.php',
     'QueryBuilder' => $baseDir . '/core/database/QueryBuilder.php',
+    'RegistrationController' => $baseDir . '/controllers/RegistrationController.php',
 );

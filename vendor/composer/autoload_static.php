@@ -25,6 +25,7 @@ class ComposerStaticInite84b1596007af5ceb56786cf55a3e8a9
         'Composer\\Autoload\\ComposerStaticInite84b1596007af5ceb56786cf55a3e8a9' => __DIR__ . '/..' . '/composer/autoload_static.php',
         'Connection' => __DIR__ . '/../..' . '/core/database/Connection.php',
         'QueryBuilder' => __DIR__ . '/../..' . '/core/database/QueryBuilder.php',
+        'RegistrationController' => __DIR__ . '/../..' . '/controllers/RegistrationController.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
