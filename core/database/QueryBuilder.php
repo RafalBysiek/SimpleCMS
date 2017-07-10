@@ -25,7 +25,6 @@ class QueryBuilder {
 		);
 
 		try {
-			var_dump($pdo);
 			$statement = $this->pdo->prepare($sql);
 			$statement->execute($parameters);
 		} catch(PDOException $e) {

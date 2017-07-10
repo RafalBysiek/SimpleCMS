@@ -24,24 +24,24 @@
         <div class="wrapper text-center">
           <strong>Sign up to find interesting thing</strong>
         </div>
-        <form name="form" class="form-validation" method=POST action="register">
+        <form name="form" class="form-validation" method=POST action="/register">
           <div class="text-danger wrapper text-center" ng-show="authError">
               
           </div>
           <div class="list-group list-group-sm">
             <div class="list-group-item">
-              <input placeholder="Name" class="form-control no-border" ng-model="user.name" required>
+              <input placeholder="Name" class="form-control no-border" ng-model="user.name" required name="username">
             </div>
             <div class="list-group-item">
-              <input type="email" placeholder="Email" class="form-control no-border" ng-model="user.email" required>
+              <input type="email" placeholder="Email" class="form-control no-border" ng-model="user.email" required name="email">
             </div>
             <div class="list-group-item">
-               <input type="password" placeholder="Password" class="form-control no-border" ng-model="user.password" required>
+               <input type="password" placeholder="Password" class="form-control no-border" ng-model="user.password" required name="password">
             </div>
           </div>
           <div class="checkbox m-b-md m-t-none">
             <label class="i-checks">
-              <input type="checkbox" ng-model="agree" required><i></i> Agree the <a href>terms and policy</a>
+              <input type="checkbox" ng-model="agree" required name="agreeTerms"><i></i> Agree the <a href>terms and policy</a>
             </label>
           </div>
           <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="signup()" ng-disabled='form.$invalid'>Sign up</button>

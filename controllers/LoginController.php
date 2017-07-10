@@ -35,7 +35,7 @@ class LoginController {
 		if ($this->loginService->login($user)) {
 			return $this->viewResolver->view('add_company');
 		} else {
-			return $this->viewResolver->view('page_signin', compact('email'));
+			return $this->viewResolver->view('page_signin', compact('user'));
 		};
 	}
 

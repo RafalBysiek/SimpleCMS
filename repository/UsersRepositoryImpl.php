@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Dto\User;
+use App\Core\App;
 
 class UsersRepositoryImpl implements UsersRepository {
 
@@ -65,4 +66,27 @@ class UsersRepositoryImpl implements UsersRepository {
 	private function makeUserFromArray($userArray) {
 		return new User($userArray[0]['email'], $userArray[0]['password'], $userArray[0]['username']);
 	}
+
+	public function insertNewUser($user) {
+		$password = $user->getPassword();
+		$email = $user->getEmail();
+		$username = $user->getUsername();
+
+		$queryString = "INSERT INTO users(email, password, username) 
+						VALUES (:email, :password, :username);"; 
+
+		try {
+			$stmt = $this->pdo->prepare($queryString);
+			$stmt->bindParam(':email', $email);
+			$stmt->bindParam(':password', $password);
+			$stmt->bindParam(':username', $username);
+			// insert one row
+			$stmt->execute();
+		} catch(PDOException $e) {
+			die($e->getMessage());
+		}	
+
+	}
+
+
 }

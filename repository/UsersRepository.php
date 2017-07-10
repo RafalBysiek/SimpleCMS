@@ -10,4 +10,6 @@ interface UsersRepository {
 
 	public function getUser(string $email);
 
+	public function insertNewUser($user);
+
 }

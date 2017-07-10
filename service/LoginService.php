@@ -2,15 +2,19 @@
 
 namespace App\Service;
 
+use App\Service\UserValidator;
+
 /* Class responsible for Logging User  */
 
 class LoginService {
 
 	private $usersRepository;
 	private $user = NULL;
+	private $userValidator;
 
 	public function __construct($usersRepository) {
 		$this->usersRepository = $usersRepository;
+		$this->userValidator = new UserValidator();
 	}
 
 	/* responsible for login user, as a parameter taeks User object 
@@ -22,36 +26,12 @@ class LoginService {
 	public function login($user) {
 		$this->user = $user; 
 
-		if ($this->areDetailsValid() && $this->validateUser()) {
+		if ($this->userValidator->areDetailsValid($user) && $this->validateUser()) {
 			$this->processLogging();		
 			return true;	
 		} else {
 			return false;
 		}
-	}
-
-	private function areDetailsValid() {
-		$emailValid = $this->isEmailValid();
-		$passwordValid = $this->isPasswordValid();
-
-		return $emailValid && $passwordValid;
-	}
-
-	private function isEmailValid() {
-		$email = $this->user->getEmail();
-		if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	private function isPasswordValid() {
-		$password = $this->user->getPassword();
-		$passwordSet = isset($password);
-		$passwordEmpty = $password === '';
-
-		return $passwordSet && (! $passwordEmpty);
 	}
 
 	private function validateUser() {
