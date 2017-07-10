@@ -44,7 +44,7 @@ class LoginController {
 
 	// TODO
 	public function logout() {
-		$loginService->logout();
-		$this->viewResolver->redirect('/');
+		$this->loginService->logout();
+		$this->viewResolver->view('index');
 	}
 }

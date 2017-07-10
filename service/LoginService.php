@@ -16,7 +16,7 @@ class LoginService {
 	public function login($user) {
 		$this->user = $user; 
 
-		if ($this->areDetailsValid() && $this->isUserRegistered()) {
+		if ($this->areDetailsValid() && $this->validateUser()) {
 			$this->processLogging();		
 			return true;	
 		} else {
@@ -48,17 +48,18 @@ class LoginService {
 		return $passwordSet && (! $passwordEmpty);
 	}
 
-	private function isUserRegistered() {
+	private function validateUser() {
 		return $this->usersRepository->validateUser($this->user);
 	}
 
 	private function processLogging() {
 		session_start();
-		//$_SESSION['username'] = $_POST['username'];
+		$_SESSION['email'] = $_POST['email'];
 	}
 
-	private function logout() {
+	public function logout() {
 		session_start();
+		unset($_SESSION['email']);
 		session_destroy();
 		//$home_url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.php';
 	}

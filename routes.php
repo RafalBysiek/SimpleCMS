@@ -10,4 +10,4 @@ $router->get('login', 'LoginController@showLogin');
 $router->post('login', 'LoginController@processLogin');
 $router->get('add_company', 'PagesController@add_company');
 $router->post('add_company', 'PagesController@add_company');
-$router->post('logout', 'LoginController@logout');
+$router->get('logout', 'LoginController@logout');
