@@ -12,5 +12,5 @@ $pdo = Connection::make($config['database']);
 
 App::bind('database', new QueryBuilder($pdo));
 
-App::bind('viewResolver', new ViewResolver('views/', '_view.php'));
+App::bind('viewResolver', new ViewResolver('html/', '.php'));
 

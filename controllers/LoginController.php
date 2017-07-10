@@ -25,11 +25,10 @@ class LoginController {
 
 	/* redirects to the login_view.php */
 	public function showLogin() {
-		return $this->viewResolver->view('login');
+		return $this->viewResolver->view('page_signin');
 	}
 
 	/* gathers details about email and password from POST superglobal variable, then sends these to LoginService which takes care of login process*/
-	// TODO
 	public function processLogin() {		
 		$email = $_POST['email'];
 		$password = $_POST['password'];
@@ -42,7 +41,6 @@ class LoginController {
 		};
 	}
 
-	// TODO
 	public function logout() {
 		$this->loginService->logout();
 		$this->viewResolver->view('index');

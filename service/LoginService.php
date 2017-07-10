@@ -61,6 +61,5 @@ class LoginService {
 		session_start();
 		unset($_SESSION['email']);
 		session_destroy();
-		//$home_url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.php';
 	}
 } 
