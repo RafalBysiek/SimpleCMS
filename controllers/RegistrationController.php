@@ -24,7 +24,6 @@ class RegistrationController {
 		return $this->viewResolver->view('page_signup');
 	}
 
-	// TODO
 	public function processRegistration() {
 		$user = $this->createUser();
 

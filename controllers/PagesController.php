@@ -23,8 +23,4 @@ class PagesController {
 	public function contact() {
 		return $this->viewResolver->view('contact');
 	}
-	public function add_company() {
-		return $this->viewResolver->view('add_company');
-	}
-	
 }

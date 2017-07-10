@@ -19,7 +19,6 @@ class RegistrationService {
 		$this->user = $user;
 
 		if ($this->userValidator->areDetailsValid($user) && $this->userNotExists()) {
-			echo 'here';
 			$this->processRegistration();
 			return true;	
 		} else {
@@ -27,12 +26,17 @@ class RegistrationService {
 		}
 	}
 
+	private function areDetailsValid() {
+		var_dump($_POST['agreeTerms']);
+		return $this->userValidator->areDetailsValid($user) && $_POST['agreeTerms'];
+	}
+
 	private function userNotExists() {
 		$email = $this->user->getEmail();
 		return ! $this->usersRepository->userExists($email);
 	}
 
-	public function processRegistration() {
+	private function processRegistration() {
 		$this->usersRepository->insertNewUser($this->user);
 	}
 

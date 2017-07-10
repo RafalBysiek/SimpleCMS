@@ -6,8 +6,8 @@ $router->get('contact', 'PagesController@contact');
 $router->post('names', 'controllers/add-name.php');
 $router->get('users', 'UsersController@index');
 $router->post('users', 'UsersController@store');
-$router->get('add_company', 'PagesController@add_company');
-$router->post('add_company', 'Add_companyController@AddingCompany');
+$router->get('addCompany', 'CompanyController@showCompany');
+$router->post('addCompany', 'CompanyController@addCompany');
 
 // LoginController
 $router->get('login', 'LoginController@showLogin');
